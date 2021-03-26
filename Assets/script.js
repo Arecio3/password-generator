@@ -25,41 +25,7 @@ var charaset = [];
 
 
 
-function generatePassword() {
-charaset.concat(specialCharacters)
-console.log("here is it",charaset);
-  var passwordLength = prompt("Enter the length of your password");
-  // If statement to determine if length is brtween 8 and 128
-  if (passwordLength < 8) {
-    alert("Must be more then 8 characters");
-    return
-  } 
-  if (passwordLength > 128) {
-    alert("Must be less than 128 characters");
-    return
-  }
-  var hasNumbers = confirm("Include Numbers?");
-  if (hasNumbers === true) {
-    charaset = charaset.concat(numericCharacters);
-
-  }
-  var hasSpecial = confirm("Include special characters?");
-  if (hasSpecial === true) {
-   charaset = charaset.concat(specialCharacters);
-  }
-  var hasCaps = confirm("Include Caps?");
-  if (hasCaps === true) {
-    charaset = charaset.concat(capCharacters);
-  }
-  var hasLower = confirm("Include lowercase?");
-  if (hasLower === true) {
-    charaset = charaset.concat(lowercaseCharacters);
-  }
-console.log(charaset);
-  // console.log(passwordLength)
-
-}
-
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -76,3 +42,55 @@ generateBtn.addEventListener("click", writePassword);
 
 
 // console.log(capCharacters);
+
+
+
+function generatePassword() {
+// charaset.concat(specialCharacters)
+
+var randomList = []; 
+//console.log("here is it",charaset);
+  var passwordLength = prompt("Enter the length of your password");
+  // If statement to determine if length is brtween 8 and 128
+  if (passwordLength < 8) {
+    alert("Must be more then 8 characters");
+    return
+  } 
+  if (passwordLength > 128) {
+    alert("Must be less than 128 characters");
+    return
+  }
+  var hasNumbers = confirm("Include Numbers?");
+  if (hasNumbers) {
+    charaset = charaset.concat(numericCharacters);
+
+  }
+  var hasSpecial = confirm("Include special characters?");
+  if (hasSpecial) {
+   charaset = charaset.concat(specialCharacters);
+  }
+  var hasCaps = confirm("Include Caps?");
+  if (hasCaps) {
+    charaset = charaset.concat(capCharacters);
+  }
+  var hasLower = confirm("Include lowercase?");
+  if (hasLower) {
+    charaset = charaset.concat(lowercaseCharacters);
+  }
+    for (var i = 0; i < passwordLength; i++) {
+      var ch = Math.floor(Math.random() * charaset.length);
+      console.log(charaset[ch]);
+      randomList[i] = charaset[ch];
+      console.log(randomList[i]);
+
+     
+
+    }
+    
+
+  
+
+  return randomList;
+
+}
+
