@@ -48,8 +48,8 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
 // charaset.concat(specialCharacters)
 
-var randomList = []; 
-//console.log("here is it",charaset);
+  // array that holds the pushed from charaset
+var password = "";
   var passwordLength = prompt("Enter the length of your password"); // asks user how long they want their password 
   // If statement to determine if length is less than 8
   if (passwordLength < 8) { // if what user typed has less than 8 characters 
@@ -77,20 +77,20 @@ var randomList = [];
   if (hasLower) { // if they want 
     charaset = charaset.concat(lowercaseCharacters); // lower case added 
   }
-    for (var i = 0; i < passwordLength; i++) { // make a loop says every character thats typed gets increment 
-      var ch = Math.floor(Math.random() * charaset.length); // create random numbers and multiplies it by index length of charaset
-      console.log(charaset[ch]);
-      randomList[i] = charaset[ch]; // connecting the randomization function to the array that will filter the options that were chosen
-      console.log(randomList[i]);
+    for (var i = 0; i < passwordLength; i++) { // make a loop says every character thats typed gets incremented
+      password += charaset[Math.floor(Math.random() * charaset.length)]; // create random numbers and multiplies it by index length of charaset
+      
+       // connecting the randomization function to the array that will filter the options that were chosen
+      
 
      
 
     }
     
 
-  
+  console.log(password);
 
-  return randomList;
+  return password;
 
 }
 
