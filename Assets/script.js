@@ -18,7 +18,7 @@ var capCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
 
 var lowercaseCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-var charaset = [];
+var charaset = []; // empty array of that holds the added arrays that get concat because the user chose them 
 
 
 
@@ -50,37 +50,37 @@ function generatePassword() {
 
 var randomList = []; 
 //console.log("here is it",charaset);
-  var passwordLength = prompt("Enter the length of your password");
-  // If statement to determine if length is brtween 8 and 128
-  if (passwordLength < 8) {
-    alert("Must be more then 8 characters");
-    return
-  } 
-  if (passwordLength > 128) {
-    alert("Must be less than 128 characters");
-    return
+  var passwordLength = prompt("Enter the length of your password"); // asks user how long they want their password 
+  // If statement to determine if length is less than 8
+  if (passwordLength < 8) { // if what user typed has less than 8 characters 
+    alert("Must be more then 8 characters"); // alerts user must have at least 8 characters
+    return // sends user back to main screen
+  } // if statement to determine if length is more than 128
+  if (passwordLength > 128) { // if what they typed is more then 128
+    alert("Must be less than 128 characters"); // alerts them that they must have less than 128 characters 
+    return // sends user back to main screen
   }
-  var hasNumbers = confirm("Include Numbers?");
-  if (hasNumbers) {
-    charaset = charaset.concat(numericCharacters);
+  var hasNumbers = confirm("Include Numbers?"); // question to user if they want numbers 
+  if (hasNumbers) { // if they say they want numbers
+    charaset = charaset.concat(numericCharacters);// adds numeric array into charaset array
 
   }
-  var hasSpecial = confirm("Include special characters?");
-  if (hasSpecial) {
-   charaset = charaset.concat(specialCharacters);
+  var hasSpecial = confirm("Include special characters?"); // question user if they want special
+  if (hasSpecial) { // if they  do
+   charaset = charaset.concat(specialCharacters); // adds specials array to charaset
   }
-  var hasCaps = confirm("Include Caps?");
-  if (hasCaps) {
-    charaset = charaset.concat(capCharacters);
+  var hasCaps = confirm("Include Caps?"); // question include caps 
+  if (hasCaps) { // if they  want
+    charaset = charaset.concat(capCharacters); // caps get added
   }
-  var hasLower = confirm("Include lowercase?");
-  if (hasLower) {
-    charaset = charaset.concat(lowercaseCharacters);
+  var hasLower = confirm("Include lowercase?"); // question include lowercase
+  if (hasLower) { // if they want 
+    charaset = charaset.concat(lowercaseCharacters); // lower case added 
   }
-    for (var i = 0; i < passwordLength; i++) {
-      var ch = Math.floor(Math.random() * charaset.length);
+    for (var i = 0; i < passwordLength; i++) { // make a loop says every character thats typed gets increment 
+      var ch = Math.floor(Math.random() * charaset.length); // create random numbers and multiplies it by index length of charaset
       console.log(charaset[ch]);
-      randomList[i] = charaset[ch];
+      randomList[i] = charaset[ch]; // connecting the randomization function to the array that will filter the options that were chosen
       console.log(randomList[i]);
 
      
